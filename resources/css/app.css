@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+@layer base {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+    @font-face {
+        font-family: "Segoe UI Emoji";
+        font-style: normal;
+        font-display: swap;
+        src: url(../fonts/TwitterColorEmoji.ttf);
+    }
+
+    @media (max-width: 768px) {
+        .desktop-nav {
+            display: none;
+        }
+        .mobile-nav {
+            display: block;
+        }
+    }
+    @media (min-width: 769px) {
+        .desktop-nav {
+            display: block;
+        }
+        .mobile-nav {
+            display: none;
+        }
+    }
+
+    body::-webkit-scrollbar {
+        width: 5px; /* Ширина всего элемента навигации */
+    }
+
+    body::-webkit-scrollbar-track {
+        background: #1f2a30; /* Цвет дорожки */
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #4E6A77; /* Цвет бегунка */
+        border-radius: 20px; /* Округление бегунка */
+    }
+}
