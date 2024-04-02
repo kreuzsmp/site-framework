@@ -33,7 +33,6 @@ class DiscordAuthorizationController extends Controller
             'discord_token' => $discordUser->token,
             'discord_refresh_token' => $discordUser->refreshToken,
             'avatar' => $discordUser->avatar,
-            'ip' => $request->ip(),
         ]);
 
         Auth::login($user);
