@@ -20,14 +20,14 @@ class MainController extends Controller
             $q = new MinecraftPing('kreuzsmp.ru');
             $res = $q->Query();
             if ($res) {
-                return view('main', ['title' => 'Ваш аккаунт', 'menu' => self::$menu]);
+                return view('main', ['title' => 'Ваш аккаунт', 'menu' => self::$menu, 'cost' => PaymentManager::getPrice()]);
             }
             else {
                 throw new MinecraftPingException("не удалось подключиться к серверу");
             }
         }
         catch (MinecraftPingException $e) {
-            return view('main', ['title' => 'Главная', 'menu' => self::$menu]);
+            return view('main', ['title' => 'Главная', 'menu' => self::$menu, 'cost' => PaymentManager::getPrice()]);
         }
     }
 

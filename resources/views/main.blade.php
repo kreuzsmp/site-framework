@@ -34,11 +34,11 @@
                     <span class="inline-block p-2 pb-3 text-xl rounded-xl bg-darkgray ml-3 select-none">Лицензия или пиратка</span>
                 </div>
                 <div class="mt-6 md:mt-16">
-                    <button class="inline-block bg-darkgray uppercase p-3 text-lg md:text-2xl font-bold rounded-xl max-md:w-full md:mr-4 hover:bg-lightgray duration-350 transition-all focus:ring-4 ring-lightgray ring-offset-4 ring-offset-transparent">Приобрести</button>
+                    <a href="/dashboard" class="inline-block bg-darkgray uppercase p-3 text-lg md:text-2xl font-bold rounded-xl max-md:w-full md:mr-4 hover:bg-lightgray duration-350 transition-all focus:ring-4 ring-lightgray ring-offset-4 ring-offset-transparent">Приобрести</a>
                     <svg class="w-10 h-px hidden md:inline-block align-super mr-4" viewBox="0 0 41 1" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line y1="0.5" x2="41" y2="0.5" stroke="white"/>
                     </svg>
-                    <span class="text-2xl hidden md:inline">249₽</span>
+                    <span class="text-2xl hidden md:inline">{{ $cost }}₽</span>
                 </div>
             </div>
             <div class="hidden xl:block">
