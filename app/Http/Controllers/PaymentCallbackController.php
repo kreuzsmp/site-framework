@@ -21,5 +21,8 @@ class PaymentCallbackController extends Controller
             ]);
             Log::info("Игрок {$request->input('customer')} купил проходку!");
         }
+        else {
+            Log::info('BAD SIGNATURE.');
+        }
     }
 }
