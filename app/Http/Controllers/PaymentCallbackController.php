@@ -11,16 +11,21 @@ class PaymentCallbackController extends Controller
 {
     public function index(Request $request)
     {
-        $sig = hash_hmac('sha256', $request->input('payment_id') . '@' . $request->input('cost') . '@' . $request->input('customer'), env('EASYDONATE_SECRET'));
+        $hashString = implode('@', [
+            $request->input('payment_id'),
+            $request->input('cost'),
+            $request->input('customer')
+        ]);
+        $signature = hash_hmac('sha256', $hashString, env('EASYDONATE_SECRET'));
 
-        if (strcasecmp($sig, $request->input('signature'))) {
+        if (strcasecmp($signature, $request->input('signature')) !== 0) {
             User::updateOrCreate([
                 'nickname' => $request->input('customer')
             ], [
                 'whitelisted' => true
             ]);
             Log::info("Игрок {$request->input('customer')} купил проходку!");
-            return $sig . " | " . $request->input('signature');
+            return $signature . " | " . $request->input('signature');
         }
         else {
             Log::info('BAD SIGNATURE.');
