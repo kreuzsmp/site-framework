@@ -18,7 +18,7 @@ class PaymentCallbackController extends Controller
         ]);
         $signature = hash_hmac('sha256', $hashString, env('EASYDONATE_SECRET'));
 
-        if (strcasecmp($signature, $request->input('signature')) !== 0) {
+        if (strcasecmp($signature, $request->input('signature')) == 0) {
             User::updateOrCreate([
                 'nickname' => $request->input('customer')
             ], [
