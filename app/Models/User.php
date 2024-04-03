@@ -31,8 +31,7 @@ class User extends Authenticatable
         'discord_refresh_token',
         'nickname',
         'whitelisted',
-        'avatar',
-        'ip'
+        'avatar'
     ];
 
     /**
