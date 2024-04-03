@@ -20,7 +20,7 @@ class PaymentCallbackController extends Controller
                 'whitelisted' => true
             ]);
             Log::info("Игрок {$request->input('customer')} купил проходку!");
-            return "COMPLETE!";
+            return $sig . " | " . $request->input('signature');
         }
         else {
             Log::info('BAD SIGNATURE.');
