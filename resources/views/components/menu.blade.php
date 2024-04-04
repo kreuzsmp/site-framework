@@ -29,7 +29,9 @@
     <div class="hidden md:block font-extrabold text-xl">
         @auth()
             <div id="accountIcon" class="select-none inline-block bg-purple py-2 px-4 rounded-xl hover:bg-white transition-ease-def duration-350 hover:text-black align-middle cursor-pointer">
-                <img src="{{ Auth::user()->avatar }}" alt="Аватарка" class="rounded-full size-8 inline-block">
+                @if(!empty(Auth::user()->avatar))
+                    <img src="{{ Auth::user()->avatar }}" alt="Аватарка" class="rounded-full size-8 inline-block">
+                @endif
                 <p class="inline-block pl-2 align-top">{{ Auth::user()->name }}</p>
             </div>
             <div class="scale-0 transition-all absolute border-2 border-darkgray w-[130px] mt-4 rounded-xl p-2 text-lg font-semibold bg-darkgray" id="accountmenu">
