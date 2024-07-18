@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Http;
 
 class PaymentCallbackController extends Controller
 {
@@ -25,7 +26,9 @@ class PaymentCallbackController extends Controller
                 'whitelisted' => true
             ]);
             Log::info("Игрок {$request->input('customer')} купил проходку!");
-            return $signature . " | " . $request->input('signature');
+            Http::withHeaders(
+                ['Authorization' => env('DISCORD_BOT_TOKEN')]
+            )->put('https://discord.com/api/guilds/' . env('DISCORD_GUILD_ID') . '/members/' . Auth::user()->discord_id . '/roles/' . env('DISCORD_ROLE_ID'));
         }
         else {
             Log::info('BAD SIGNATURE.');
