@@ -1,49 +1,228 @@
-<x-templates.main>
-    <x-slot:content>
-        <header class="h-screen bg-hero-bg bg-no-repeat bg-cover bg-center">
-            <div class="h-full container mx-auto">{{--HERO блок--}}
-                <x-menu>
-                    <x-slot:menu>
-                        @foreach($menu as $item => $url)
-                            <a href="{{ $url }}" class="text-2xl mr-6 font-extrabold uppercase hover:text-purple transition-colors duration-350 transition-ease-def">{{ $item }}</a>
-                        @endforeach
-                    </x-slot:menu>
-                    <x-slot:mobmenu>
-                        @foreach($menu as $item => $url)
-                            <a href="{{ $url }}" class="text-center text-2xl py-4 font-extrabold focus:text-purple transition-colors uppercase">{{ $item }}</a>
-                        @endforeach
-                    </x-slot:mobmenu>
-                </x-menu>
-                <div class="w-full h-1/2 flex flex-row justify-between max-md:mt-16">
-                    <div class="h-full basis-full md:basis-1/2 flex flex-col justify-center animate-hero-translate mx-4 md:mx-0">
-                        <h1 class="text-7xl font-bold italic text-center md:text-left">KREUZ SMP</h1>
-                        <p class="mt-3 font-medium text-light-200 text-2xl max-w-[30ch] md:max-w-[45ch] text-center md:text-left mx-auto md:mx-0">Ванильный сервер Minecraft с небольшими дополнениями, призванными улучшить ваш опыт игры. </p>
-                    </div>
-                    <div class="h-full basis-0 md:basis-1/2">
+<x-templates.main title="{{ $title }}" navcolor="blue">
+
+    <x-slot:header>
+        <header class="relative w-full h-screen bg-gradient-to-b from-[rgba(255,98,255,0.05)] to-[rgba(0,133,255,0.1)] backdrop-blur-sm">
+            <div id="heroblock" class="container h-full px-4 flex flex-col justify-center mx-auto text-center lg:text-left lg:flex-row lg:items-center">
+                <div class="align-middle my-0 w-full">
+                    <h1 class="font-bold text-5xl text-white-200 tracking-wide leading-tight">Ванильный сервер с небольшими дополнениями</h1>
+                    <p class="text-white-300 text-xl my-4 tracking-wide">Погрузитесь в игру без доната и привата. Игра основывается на доверии игроков, интересных дополнениях и РП составляющей сервера. Дай волю своей фантазии и трансформируй мир своим присутствием!</p>
+                    <span class="text-xl text-white-200">1.21.1 Лицензия не обязательна</span>
+                    <div class="flex flex-row items-center mt-4 justify-between">
+                        @auth()
+                            <a href="dashboard" class="py-4 px-20 text-xl text-white-100 block bg-pirpblu rounded-3xl tracking-wide max-lg:mx-auto">Приобрести</a>
+                        @else
+                            <a href="login" class="py-4 px-20 text-xl text-white-100 block bg-pirpblu rounded-3xl tracking-wide max-lg:mx-auto">Приобрести</a>
+                        @endauth
                     </div>
                 </div>
+                <div class="w-full max-lg:hidden flex justify-end">
+                    <img class="w-3/4" src="{{ Vite::asset('resources/images/hero-image.png') }}" alt="">
+                </div>
+
             </div>
-            {{--            <div class="absolute inset-x-0 mx-auto bottom-20 size-12 bg-purple animate-bounce"></div>--}}
+            <div class="absolute bottom-0 w-full h-48 z-0 bg-gradient-to-t from-[rgba(0,133,255,0.3)] to-transparent">
+            </div>
         </header>
-        <section class="w-4/5 2xl:w-3/5 mx-auto mt-64 mb-16 rounded-2xl border-4 border-lightgray p-4 pt-6 md:p-8 xl:grid xl:grid-cols-2 relative">
-            <div>
-                <h2 class="block max-md:text-center text-4xl md:text-5xl uppercase font-bold md:inline-block align-middle">Как зайти?</h2>
-                <p class="text-lightgray text-lg md:text-2xl mt-4 text-balance max-md:text-center">Для входа в игру вам нужно будет приобрести доступ по кнопке ниже и вы автоматически будете добавлены в вайтлист сервера. Актуальная версия 1.20.4 Java edition. Играть можно как с Лицензии так и с Пиратки. Ждем вас!</p>
-                <div class="mt-4 hidden md:none">
-                    <span class="inline-block p-2 pb-3 text-xl rounded-xl bg-darkgray select-none">1.20.4 Java edition</span>
-                    <span class="inline-block p-2 pb-3 text-xl rounded-xl bg-darkgray ml-3 select-none">Лицензия или пиратка</span>
+    </x-slot:header>
+    <x-slot:content>
+        <div class="text-white-200 pt-12">
+            <div class="w-full p-4 pb-6 bg-bg-black rounded-3xl">
+                <h2 class="text-5xl font-bold">Новости</h2>
+                <p class="pt-2 text-3xl leading-tight">
+                    Скоро новый сезон! Подготавливайте свои сборки для игры на сервер!
+                </p>
+                <div class="w-full h-4 mt-4 rounded-full bg-pirpblu"></div>
+            </div>
+        </div>
+        <div class="mt-24 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 container mx-auto">
+            <div class="bg-bg-black p-4 pb-6 rounded-3xl w-full flex flex-col justify-between gap-4">
+                <div>
+                    <div class="flex flex-row items-center gap-2">
+                        <img src="{{ Vite::asset('resources/images/icon1.png') }}" alt="">
+                        <h2 class="text-3xl font-semibold">СВОбода действий!</h2>
+                    </div>
+                    <p class="text-xl text-white-300 my-2">Свергайте, выбирайте президента или короля сервера, принимайте законы для игроков и предлагайте свои идеи! У нас нет навязчивых правил — все основано на судебной системе и системе штрафов!</p>
                 </div>
-                <div class="mt-6 md:mt-16">
-                    <a href="/dashboard" class="inline-block bg-darkgray uppercase p-3 text-lg md:text-2xl font-bold rounded-xl max-md:w-full md:mr-4 hover:bg-lightgray duration-350 transition-all focus:ring-4 ring-lightgray ring-offset-4 ring-offset-transparent">Приобрести</a>
-                    <svg class="w-10 h-px hidden md:inline-block align-super mr-4" viewBox="0 0 41 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line y1="0.5" x2="41" y2="0.5" stroke="white"/>
-                    </svg>
-                    <span class="text-2xl hidden md:inline">{{ $cost }}₽</span>
+                <img src="https://i.imgur.com/71zXI14.png" class="rounded-3xl relative bottom-0">
+                <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="w-full py-3 border border-white-200 rounded-3xl text-center">Читать на вики</a>
+            </div>
+            <div class="bg-bg-black p-4 pb-6 rounded-3xl w-full flex flex-col justify-between gap-4">
+                <div>
+                    <div class="flex flex-row items-center gap-2">
+                        <img src="{{ Vite::asset('resources/images/icon2.png') }}" alt="">
+                        <h2 class="text-3xl font-semibold">Интерактивный сайт</h2>
+                    </div>
+                    <p class="text-xl text-white-300 my-2">Личный кабинет игрока обеспечивает доступ к банковской системе для управления финансами, документы игрока (включая лицензии и паспорта), настройки профиля и статистики, систему уведомлений о важных событиях, а также дополнительные страницы, форум и техническую поддержку, обеспечивая удобное и безопасное управление игровым опытом.</p>
+                </div>
+                <img src="https://i.imgur.com/V6zT2Mi.png" class="rounded-3xl relative bottom-0">
+                <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="w-full py-3 border border-white-200 rounded-3xl text-center">Читать на вики</a>
+            </div>
+            <div class="bg-bg-black p-4 pb-6 rounded-3xl w-full flex flex-col justify-between gap-4">
+                <div>
+                    <div class="flex flex-row items-center gap-2">
+                        <img src="{{ Vite::asset('resources/images/icon3.png') }}" alt="">
+                        <h2 class="text-3xl font-semibold">Состав администрации</h2>
+                    </div>
+                    <p class="text-xl text-white-300 my-2">Наша администрация — это команда, созданная для обеспечения комфортной и безопасной игровой среды. Мы верим в демократический подход и взаимодействие с игроками.</p>
+                </div>
+                <img src="https://i.imgur.com/XzHbowf.png" class="rounded-3xl relative bottom-0">
+                <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="w-full py-3 border border-white-200 rounded-3xl text-center">Читать на вики</a>
+            </div>
+            <div class="bg-bg-black p-4 pb-6 rounded-3xl w-full flex flex-col justify-between gap-4">
+                <div>
+                    <div class="flex flex-row items-center gap-2">
+                        <img src="{{ Vite::asset('resources/images/icon4.png') }}" alt="">
+                        <h2 class="text-3xl font-semibold">Необычные дополнения</h2>
+                    </div>
+                    <p class="text-xl text-white-300 my-2">Седла на игроках, отключенные никнеймы над головой и др. призванные для улучшения игрового процесса — вам не будет скучно на протяжении всего сезона! Голосовой чат и эмоции помогут вам комуницировать с другими игроками.</p>
+                </div>
+                <img src="https://i.imgur.com/NWbawwa.png" class="rounded-3xl relative bottom-0">
+                <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="w-full py-3 border border-white-200 rounded-3xl text-center">Читать на вики</a>
+            </div>
+        </div>
+
+
+        <h1 class="text-3xl font-bold text-center mt-24 mb-6">Не уверен в покупке проходки?</h1>
+        <div class="w-full">
+            <div class="overflow-hidden w-full">
+                <div class="flex animate-scrolling-gallery-reverse">
+                    <!-- Галерея изображений №1 -->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg1.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <!-- Дублирование изображений для бесконечной прокрутки -->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
                 </div>
             </div>
-            <div class="hidden xl:block">
-                <img src="{{ Vite::asset('resources/images/model.webp') }}" class="absolute max-w-md bottom-0 right-0">
+            <div class="overflow-hidden w-full">
+                <div class="flex animate-scrolling-gallery">
+                    <!-- Галерея изображений №2-->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg1.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <!-- Дублирование изображений для бесконечной прокрутки -->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+
+        <div class="mt-20 flex flex-col lg:flex-row justify-between gap-12 lg:min-h-[820px]">
+            <div class="w-full lg:w-4/5">
+                <h2 class="text-5xl font-bold">FAQ</h2>
+                <details class="border-b border-white-400 py-4">
+                    <summary class="text-xl font-semibold">Как попасть на сервер?</summary>
+                    <p class="mt-2">Следует приобрести проходку, но на данный момент проходит акция, по которой у вас есть возможность попасть бесплатно! Перейдите в дискорд сервер, там есть вся информация.</p>
+                </details>
+                <details class="border-b border-white-400 py-4">
+                    <summary class="text-xl font-semibold">Java или Bedrock? Какая версия?</summary>
+                    <p class="mt-2">Наш сервер поддерживает только Java издание Minecraft версии 1.21.1</p>
+                </details>
+                <details class="border-b border-white-400 py-4">
+                    <summary class="text-xl font-semibold">Где узнать IP сервера?</summary>
+                    <p class="mt-2">IP указан в личном кабинете -> Профиль. А так же на дискорд сервере в канале #Информация.</p>
+                </details>
+                <details class="border-b border-white-400 py-4">
+                    <summary class="text-xl font-semibold">Когда вайп?</summary>
+                    <p class="mt-2">Вайп происходит при слиянии большинства обстоятельств, как полностью достингнутый прогресс Ивентов сервера, и иных механик, и при наличии актуального обновления! Мы договариваемся о таких делах заранее, внезапного отключения не будет.</p>
+                </details>
+                <details class="py-4">
+                    <summary class="text-xl font-semibold">Что за Kreuz+?</summary>
+                    <p class="mt-2">Спонсорская подписка, которую можно преобрести за 169 рублей, она дает мало преимуществ, это больше для поддержки сервера и выделения себя среди других игроков!</p>
+                </details>
+            </div>
+
+            <div class="w-full lg:w-4/5block">
+                <div class="bg-bg-dark rounded-3xl">
+                    <div class="flex flex-row">
+                        <div class="basis-full lg:basis-2/3">
+                            <div class="p-8">
+                                <h1 class="text-4xl font-bold">Хочу попробовать!</h1>
+                                <p class="text-xl text-white-300 my-2">Погрузись в мир приключений и безграничных идей в месте с друзьями, или найди на сервере себе друга.</p>
+                                <span class="text-xl text-white-200 my-4">1.21.1 Лицензия не обязательна</span>
+                            </div>
+                            <a href="#heroblock" class="w-full inline-block text-center py-4 text-2xl transition-all font-semibold bg-pirpblu rounded-bl-xl max-lg:rounded-b-xl">249₽</a>
+                        </div>
+                        <div class="max-lg:hidden w-full h-[inherit] rounded-r-xl bg-hero-image bg-cover">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12 max-lg:mt-12 grow-0">
+            <div class="border border-white-400 h-28 bg-bg-black text-4xl transition-all hover:scale-105 transform-gpu rounded-2xl">
+                <a href="{{ route('discord-server') }}" class="w-full h-full flex justify-center items-center">
+                    <i class="fa-brands fa-discord text-[#5865f2]"></i>
+                </a>
+            </div>
+            <div class="border border-white-400 h-28 flex justify-center items-center bg-white-200 text-4xl transition-all hover:scale-105 transform-gpu rounded-2xl">
+                <a href="https://www.youtube.com/@Kreuz_SMP" class="w-full h-full flex justify-center items-center">
+                    <i class="fa-brands fa-youtube text-[#ED1D24]"></i>
+                </a>
+            </div>
+            <div class="border border-white-400 h-28 bg-white-150 text-4xl transition-all hover:scale-105 transform-gpu rounded-2xl">
+                <a href="https://www.tiktok.com/@kreuz_smp?_t=8qqPCMiVVXG&_r=1" class="w-full h-full flex justify-center items-center">
+                    <i class="fa-brands fa-tiktok text-bigBlac"></i>
+                </a>
+            </div>
+            <div class="border border-white-400 h-28 bg-blu text-4xl transition-all hover:scale-105 transform-gpu rounded-2xl">
+                <a href="https://t.me/kreuz_smp" class="w-full h-full flex justify-center items-center">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+            </div>
+        </div>
     </x-slot:content>
 </x-templates.main>

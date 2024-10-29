@@ -11,9 +11,13 @@ class Main extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public string $title;
+    public string $navcolor;
+
+    public function __construct(string $title, string $navcolor)
     {
-        //
+        $this->title = $title;
+        $this->navcolor = $navcolor;
     }
 
     /**

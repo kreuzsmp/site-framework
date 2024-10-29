@@ -12,45 +12,28 @@ import.meta.glob([
     '../fonts/**',
 ]);
 
-let toggler = document.querySelector('.mobile-toggler');
-let menu = document.querySelector('.mobile-menu');
-let logo = document.querySelector('.logo');
-let preload = document.querySelector('#preload');
 
-let accountMenu = document.querySelector('#accountmenu');
-let accountIcon = document.querySelector('#accountIcon');
+let lastScrollY = window.scrollY;
+const navbar = document.getElementById('navbar');
+let isScrollingDown = false;
 
-
-toggler.onclick = function (elem) {
-    menu.classList.toggle('-translate-x-[200%]')
-
-
-    if (toggler.classList.contains('absolute')) {
-        toggler.classList.replace('absolute', 'fixed');
-    }
-    else {
-        toggler.classList.replace('fixed', 'absolute')
+window.addEventListener('scroll', () => {
+    // Определяем, скроллит ли пользователь вниз
+    if (window.scrollY > lastScrollY && !isScrollingDown) {
+        // Скролл вниз, скрываем Navbar
+        navbar.classList.add('-translate-y-full');
+        // navbar.classList.remove('sticky');
+        isScrollingDown = true;
     }
 
-    if (logo.classList.contains('absolute')) {
-        logo.classList.replace('absolute', 'fixed');
+    // Определяем, скроллит ли пользователь вверх
+    if (window.scrollY < lastScrollY && isScrollingDown) {
+        // Скролл вверх, показываем Navbar
+        navbar.classList.remove('-translate-y-full');
+        // navbar.classList.add('sticky');
+        isScrollingDown = false;
     }
-    else {
-        logo.classList.replace('fixed', 'absolute');
-    }
-}
 
-if (accountIcon) {
-    accountIcon.onclick = function () {
-        accountMenu.classList.toggle('scale-0');
-    }
-}
-
-window.onload = function () {
-    preload.classList.add('animate-loaded');
-
-}
-
-preload.onanimationend = function () {
-    preload.classList.add('hidden');
-}
+    // Обновляем последнее положение скролла
+    lastScrollY = window.scrollY;
+});

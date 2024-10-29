@@ -8,47 +8,50 @@ use Illuminate\Support\Facades\Auth;
 use xPaw\MinecraftPing;
 use xPaw\MinecraftPingException;
 use App\Services\PaymentManager;
-
+use Illuminate\Support\Facades\Log;
 
 class MainController extends Controller
 {
     static array $menu = ['Главная' => '/'];
 
-    public function index()
+    public function index(Request $request)
     {
-        try {
-            $q = new MinecraftPing('kreuzsmp.ru');
-            $res = $q->Query();
-            if ($res) {
-                return view('main', ['title' => 'Ваш аккаунт', 'menu' => self::$menu, 'cost' => PaymentManager::getPrice()]);
-            }
-            else {
-                throw new MinecraftPingException("не удалось подключиться к серверу");
-            }
-        }
-        catch (MinecraftPingException $e) {
-            return view('main', ['title' => 'Главная', 'menu' => self::$menu, 'cost' => PaymentManager::getPrice()]);
-        }
+        Log::info("Посещена главная страница с клиента: " . $request->userAgent());
+        return view('main', ['title' => 'Главная']);
     }
 
     public function dashboard(Request $request)
     {
-        return view("dashboard", ['title' => 'Панель управления', 'menu' => self::$menu]);
+        return view("dashboard", ['title' => 'Ваш аккаунт']);
+    }
+
+    public function sub()
+    {
+        return view('kreuzplus', ['title' => "Подписка Kreuz+"]);
     }
 
     public function payment(Request $request)
     {
         $validated = $request->validate([
-            'nickname' => ['required', 'max:16', 'alpha_dash:ascii', 'not_regex:/-/s']
+            'nickname' => ['required', 'max:16', 'alpha_dash:ascii', 'not_regex:/-/s'],
+            'email' => ['required', 'email:rfc,dns'],
+            'months' => ['numeric']
         ]);
+        if ($request->has('months')) {
+            return PaymentManager::createPayment($request->input('nickname'), $request->input('coupon') ?? ' ', $request->input('email'), 'sponsor' . $request->input('months'));
+        }
+        else {
+            User::updateOrCreate(['discord_id' => $request->user()->discord_id], ['nickname' => $request->input('nickname')]);
 
-        User::updateOrCreate(['discord_id' => $request->user()->discord_id], ['nickname' => $request->input('nickname')]);
+            return PaymentManager::createPayment($request->input('nickname'), $request->input('coupon') ?? ' ', $request->input('email'));
 
-        return PaymentManager::createPayment($request->input('nickname'), $request->input('coupon') ?? ' ');
+        }
+
     }
+
 
     public function success()
     {
-        return view('successbuy', ['title', 'menu' => self::$menu]);
+        return view('successbuy', ['title' => "Спасибо за покупку!"]);
     }
 }

@@ -14,92 +14,62 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
-                serif: ['"Work Sans"', ...defaultTheme.fontFamily.serif],
-                mono: ['"Jetbrains mono"', ...defaultTheme.fontFamily.mono]
+                sans: ['Inter', ...defaultTheme.fontFamily.sans]
             },
             colors: {
-                'purple': '#5865F2',
-                'light': {
-                    100: '#999999',
-                    200: '#CACACA',
-                    300: '#E4E2E2',
-                    400: '#FFFFFF',
+                'bigBlac': "#0f0f0f",
+                'pirpblu': "#3346ff",
+                'blu': '#0085ff',
+                'red': '#f25858',
+                'white': {
+                    100: '#ffffff',
+                    150: '#f5f5f5',
+                    200: '#eeeeee',
+                    300: '#868686',
+                    400: '#323334'
                 },
-                'lightgray': '#4E6A77',
-                'darkgray': '#1f2a30',
-                'darkergray': '#191919',
-
-                'g_lin_1': {
-                    100: '#E5E3E3',
-                    200: '#7F7E7E',
-                },
+                'bg-black': '#141516',
+                'bg-dark': '#1a1b1c',
+                'bg-gray': '#343434'
             },
-            transitionTimingFunction: {
-                'def': 'cubic-bezier(.44,.15,.23,.98)',
-                'hero': 'cubic-bezier(.27,.16,.26,1.22)',
-            },
-            backgroundImage: {
-                'hero-bg': 'url(/resources/images/bg.webp)'
-            },
-            transitionDuration: {
-                '350': '350ms',
+            borderRadius: {
+                'mid': '1.25rem',
             },
             keyframes: {
-                'from-left' : {
+                'bg-blur': {
                     '0%': {
-                        transform: 'translateX(-50%)',
+                        backdropFilter: 'blur(0)',
                     },
                     '100%': {
-                        transform: 'translateX(0)'
-                    }
+                        backdropFilter: 'blur(8px)',
+                    },
                 },
 
-                'loading': {
+                scroll: {
                     '0%': {
-                        transform: 'scale(100%, 100%)',
-                        opacity: '100%'
-                    },
-                    '99%': {
-                        transform: 'scale(100%, 100%)',
-                        opacity: '0%'
+                        transform: "translateX(0)",
                     },
                     '100%': {
-                        transform: 'scale(0, 0)',
-                        opacity: '0',
+                        transform: "translateX(-100%)"
                     }
                 },
-
-                'around': {
-                    '0%': {
-                        transform: 'rotate(0)',
-                    },
-                    '50%': {
-                        transform: 'rotate(-180deg)',
-                    },
-                    '100%': {
-                        transform: 'rotate(-360deg)',
-                    }
-                }
             },
-
             animation: {
-                'hero-translate': 'from-left 1225ms ease',
-                'loaded': 'loading 500ms cubic-bezier(.45,.19,.13,1.16)',
-                'around-loader': 'around 1s ease'
+                'scrolling-gallery': "scroll 20s linear infinite",
+                'scrolling-gallery-reverse': "scroll 20s linear infinite reverse",
+                'bluralize': "bg-blur 500ms ease-in-out"
+            },
+            backgroundImage: {
+                'hero-image': "url(/resources/images/bg3.png)"
             }
+
+
         },
     },
+
     safelist: [
-        'animate-loaded',
-        'scale-0',
-        'animate-around-loader',
-        'scale-150',
-        'absolute',
-        'bottom-0',
-        'visible',
-        'invisible',
-        'scale-100'
+        '-translate-y-full',
     ],
+
     plugins: [forms, typography],
 };

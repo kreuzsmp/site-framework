@@ -1,21 +1,5 @@
-<x-templates.main>
+<x-templates.main title="{{ $title }}" navcolor="blue">
     <x-slot:content>
-        <header class="w-full">
-            <div class="container mx-auto">
-                <x-menu>
-                    <x-slot:menu>
-                        @foreach($menu as $item => $url)
-                            <a href="{{ $url }}" class="text-2xl mr-6 font-extrabold uppercase hover:text-purple transition-colors duration-350 transition-ease-def">{{ $item }}</a>
-                        @endforeach
-                    </x-slot:menu>
-                    <x-slot:mobmenu>
-                        @foreach($menu as $item => $url)
-                            <a href="{{ $url }}" class="text-center text-2xl py-4 font-extrabold focus:text-purple transition-colors uppercase">{{ $item }}</a>
-                        @endforeach
-                    </x-slot:mobmenu>
-                </x-menu>
-            </div>
-        </header>
         <main class="container mx-auto my-32">
             <h1 class="text-center text-5xl font-semibold">Спасибо за покупку!</h1>
             <p class="text-light-100 text-center text-2xl mt-8">

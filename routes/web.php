@@ -1,10 +1,10 @@
 <?php
 
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
-use xPaw\MinecraftPing;
-use App\Http\Controllers\CheckDiscordServer;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +19,8 @@ use App\Http\Controllers\CheckDiscordServer;
 //
 
 Route::get('/', [MainController::class, 'index'])->name('main');
+Route::get('/kreuzplus', [MainController::class, 'sub'])->name('kreuzplus');
+Route::get('/discord', function () {
+    return redirect()->away('https://discord.gg/Fz5Sfhjr3F');
+})->name('discord-server');
 require __DIR__.'/auth.php';
