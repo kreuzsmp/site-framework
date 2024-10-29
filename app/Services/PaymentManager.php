@@ -35,12 +35,12 @@ class PaymentManager
         return $productId;
     }
 
-    public static function getPrice($type = 'pass') {
-        $secret = env('EASYDONATE_SECRET');
-        $productId = self::getProductId($type);
-
-        $sdk = new Sdk($secret);
-
-        return $sdk->getProduct($productId)->price;
-    }
+//    public static function getPrice($type = 'pass') {
+//        $secret = env('EASYDONATE_SECRET');
+//        $productId = self::getProductId($type);
+//
+//        $sdk = new Sdk($secret);
+//
+//        return $sdk->getProduct($productId)->price;
+//    }
 }
