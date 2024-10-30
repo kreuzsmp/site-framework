@@ -1,6 +1,6 @@
 <nav class="w-full bg-bigBlac fixed top-0 left-0 transition-transform duration-300 ease-in-out z-10" id="navbar">
-    <div class="flex flex-row justify-between container mx-auto px-6 py-2">
-        <div class="h-12 w-12 flex items-center">
+    <div class="flex flex-row justify-between container mx-auto lg:px-6 py-2">
+        <div class="h-12 w-12 flex items-center max-lg:ml-4">
             <a href="{{ route('main') }}">
                 <svg class="h-8 hover:scale-125 aspect-square transition-all" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     @if($navcolor=="red")
@@ -15,7 +15,7 @@
             @if($navcolor == "red")
                 <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Wiki</a><a href="{{ route('discord-server') }}" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Discord</a><a href="{{ route('kreuzplus') }}" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Kreuz+</a>
             @else
-                <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="align-middle px-0.5 hover:text-gray-700 transition-all duration-300 px-2">Wiki</a><a href="{{ route('discord-server') }}" class="align-middle px-0.5 hover:text-gray-700 transition-all duration-300 px-2">Discord</a><a href="{{ route('kreuzplus') }}" class="align-middle px-0.5 hover:text-gray-700 transition-all duration-300 px-2">Kreuz+</a>
+                <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Wiki</a><a href="{{ route('discord-server') }}" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Discord</a><a href="{{ route('kreuzplus') }}" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Kreuz+</a>
             @endif
         </div>
         <div class="inline-block my-auto">
@@ -24,7 +24,7 @@
                     @if(!empty(Auth::user()->avatar))
                         <img src="{{ Auth::user()->avatar }}" alt="Аватарка" class="rounded-full size-8 inline-block">
                     @endif
-                    <p class="inline-block pl-2 align-middle text-white-200">{{ Auth::user()->name }}</p>
+                    <p class="hidden lg:inline-block pl-2 align-middle text-white-200">{{ Auth::user()->name }}</p>
                 </a>
                 <div class="scale-0 transition-all absolute border-2 border-darkgray w-[130px] mt-4 rounded-xl p-2 text-lg font-semibold bg-darkgray" id="accountmenu">
                     <a href="dashboard" class="py-2 block text-white-200 transition transition-all hover:text-lightgray">Настройки</a>
@@ -32,16 +32,20 @@
                 </div>
             @else
                 @if($navcolor == "red")
-                    <a href="login" class="align-middle px-6 py-3 rounded-xl bg-red font-semibold text-white-200">
-                        <p class="inline-block">Войти</p>
+                    <a href="login" class="align-middle px-3 lg:px-6 py-3 rounded-xl bg-red font-semibold text-white-200">
+                        <p class="inline-block max-lg:hidden">Войти</p>
                         <svg class="inline-block align-text-top" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.77783 11.9996C1.77783 7.18113 1.77783 4.77084 3.27458 3.27409C4.77133 1.77734 7.18055 1.77734 12.0001 1.77734C16.8185 1.77734 19.2288 1.77734 20.7255 3.27409C22.2223 4.77084 22.2223 7.18006 22.2223 11.9996C22.2223 16.818 22.2223 19.2283 20.7255 20.725C19.2288 22.2218 16.8196 22.2218 12.0001 22.2218C7.18162 22.2218 4.77133 22.2218 3.27458 20.725C1.77783 19.2283 1.77783 16.8191 1.77783 11.9996Z" stroke="#EEEEEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M17.4201 12.0291H9.91488M9.91488 12.0291C9.91488 12.6424 12.2337 14.7051 12.2337 14.7051M9.91488 12.0291C9.91488 11.3985 12.2337 9.37666 12.2337 9.37666M6.65991 7.68945V16.2976" stroke="#EEEEEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
                 @else
-                    <a href="login" class="align-middle px-6 py-3 rounded-xl bg-pirpblu font-semibold text-white-200">
-                        Войти
+                    <a href="login" class="align-middle px-3 lg:px-6 py-3 rounded-xl bg-pirpblu font-semibold text-white-200">
+                        <p class="inline-block max-lg:hidden">Войти</p>
+                        <svg class="inline-block align-text-top" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.77783 11.9996C1.77783 7.18113 1.77783 4.77084 3.27458 3.27409C4.77133 1.77734 7.18055 1.77734 12.0001 1.77734C16.8185 1.77734 19.2288 1.77734 20.7255 3.27409C22.2223 4.77084 22.2223 7.18006 22.2223 11.9996C22.2223 16.818 22.2223 19.2283 20.7255 20.725C19.2288 22.2218 16.8196 22.2218 12.0001 22.2218C7.18162 22.2218 4.77133 22.2218 3.27458 20.725C1.77783 19.2283 1.77783 16.8191 1.77783 11.9996Z" stroke="#EEEEEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.4201 12.0291H9.91488M9.91488 12.0291C9.91488 12.6424 12.2337 14.7051 12.2337 14.7051M9.91488 12.0291C9.91488 11.3985 12.2337 9.37666 12.2337 9.37666M6.65991 7.68945V16.2976" stroke="#EEEEEE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </a>
                 @endif
             @endauth
