@@ -1,6 +1,6 @@
 <nav class="w-full bg-bigBlac fixed top-0 left-0 transition-transform duration-300 ease-in-out z-10" id="navbar">
-    <div class="flex flex-row justify-between container mx-auto lg:px-6 py-2">
-        <div class="h-12 w-12 flex items-center max-lg:ml-4">
+    <div class="px-4 flex flex-row justify-between container mx-auto lg:px-6 py-2">
+        <div class="h-12 w-12 flex items-center">
             <a href="{{ route('main') }}">
                 <svg class="h-8 hover:scale-125 aspect-square transition-all" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     @if($navcolor=="red")
