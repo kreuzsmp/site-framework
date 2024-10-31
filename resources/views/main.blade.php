@@ -118,11 +118,135 @@
                     <div class="flex-shrink-0 w-64 p-2">
                         <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 1" class="rounded-lg shadow-md">
                     </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg1.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <!-- Дублирование изображений для бесконечной прокрутки -->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg1.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <!-- Дублирование изображений для бесконечной прокрутки -->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
                 </div>
             </div>
             <div class="overflow-hidden w-full">
                 <div class="flex animate-scrolling-gallery">
                     <!-- Галерея изображений №2-->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg1.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <!-- Дублирование изображений для бесконечной прокрутки -->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg1.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <!-- Дублирование изображений для бесконечной прокрутки -->
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg5.png') }}" alt="Image 5" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg4.png') }}" alt="Image 4" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg3.png') }}" alt="Image 3" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 2" class="rounded-lg shadow-md">
+                    </div>
+                    <div class="flex-shrink-0 w-64 p-2">
+                        <img src="{{ Vite::asset('resources/images/bg2.png') }}" alt="Image 1" class="rounded-lg shadow-md">
+                    </div>
                     <div class="flex-shrink-0 w-64 p-2">
                         <img src="{{ Vite::asset('resources/images/bg1.png') }}" alt="Image 1" class="rounded-lg shadow-md">
                     </div>
