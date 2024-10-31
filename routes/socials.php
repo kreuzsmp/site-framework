@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-Route::name('socials')->group(function () {
+Route::name('socials.')->group(function () {
     Route::get('/discord', function () {
         return redirect()->away('https://discord.gg/Fz5Sfhjr3F');
     })->name('discord-server');
