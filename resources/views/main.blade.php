@@ -328,22 +328,22 @@
 
         <div class="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12 max-lg:mt-12 grow-0">
             <div class="border border-white-400 h-28 bg-bg-black text-4xl transition-all hover:scale-105 transform-gpu rounded-2xl">
-                <a href="{{ route('discord-server') }}" class="w-full h-full flex justify-center items-center">
+                <a href="{{ route('socials.discord-server') }}" class="w-full h-full flex justify-center items-center">
                     <i class="fa-brands fa-discord text-[#5865f2]"></i>
                 </a>
             </div>
             <div class="border border-white-400 h-28 flex justify-center items-center bg-white-200 text-4xl transition-all hover:scale-105 transform-gpu rounded-2xl">
-                <a href="https://www.youtube.com/@Kreuz_SMP" class="w-full h-full flex justify-center items-center">
+                <a href="{{ route('socials.youtube') }}" class="w-full h-full flex justify-center items-center">
                     <i class="fa-brands fa-youtube text-[#ED1D24]"></i>
                 </a>
             </div>
             <div class="border border-white-400 h-28 bg-white-150 text-4xl transition-all hover:scale-105 transform-gpu rounded-2xl">
-                <a href="https://www.tiktok.com/@kreuz_smp?_t=8qqPCMiVVXG&_r=1" class="w-full h-full flex justify-center items-center">
+                <a href="{{ route('socials.tiktok') }}" class="w-full h-full flex justify-center items-center">
                     <i class="fa-brands fa-tiktok text-bigBlac"></i>
                 </a>
             </div>
             <div class="border border-white-400 h-28 bg-blu text-4xl transition-all hover:scale-105 transform-gpu rounded-2xl">
-                <a href="https://t.me/kreuz_smp" class="w-full h-full flex justify-center items-center">
+                <a href="{{ route('socials.telegram') }}" class="w-full h-full flex justify-center items-center">
                     <i class="fa-brands fa-telegram"></i>
                 </a>
             </div>

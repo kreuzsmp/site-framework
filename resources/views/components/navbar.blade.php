@@ -13,9 +13,9 @@
         </div>
         <div class="inline-block my-auto text-white-200 font-semibold">
             @if($navcolor == "red")
-                <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Wiki</a><a href="{{ route('discord-server') }}" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Discord</a><a href="{{ route('kreuzplus') }}" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Kreuz+</a>
+                <a href="{{ route('socials.discord-server') }}" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Wiki</a><a href="{{ route('discord-server') }}" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Discord</a><a href="{{ route('kreuzplus') }}" class="align-middle px-0.5 hover:text-red transition-all duration-300 px-2">Kreuz+</a>
             @else
-                <a href="https://kreuzsmp.gitbook.io/kreuzwiki" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Wiki</a><a href="{{ route('discord-server') }}" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Discord</a><a href="{{ route('kreuzplus') }}" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Kreuz+</a>
+                <a href="{{ route('socials.discord-server') }}" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Wiki</a><a href="{{ route('discord-server') }}" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Discord</a><a href="{{ route('kreuzplus') }}" class="align-middle px-0.5 hover:text-pirpblu transition-all duration-300 px-2">Kreuz+</a>
             @endif
         </div>
         <div class="inline-block my-auto">

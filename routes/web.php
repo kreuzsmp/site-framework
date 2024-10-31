@@ -1,8 +1,6 @@
 <?php
 
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 
@@ -20,7 +18,7 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'index'])->name('main');
 Route::get('/kreuzplus', [MainController::class, 'sub'])->name('kreuzplus');
-Route::get('/discord', function () {
-    return redirect()->away('https://discord.gg/Fz5Sfhjr3F');
-})->name('discord-server');
+
+
 require __DIR__.'/auth.php';
+require __DIR__.'/socials.php';
