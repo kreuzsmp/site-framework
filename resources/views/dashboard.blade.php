@@ -53,7 +53,11 @@
                         <button type="submit" class="p-4 bg-bg-gray rounded-2xl mt-4">Продолжить</button>
                     </form>
                 @endif
+                <div class="mt-6">
+                    <a href="/logout" class="text-xl text-red font-semibold pt-6">Выйти</a>
+                </div>
             </div>
+
         </div>
         <script>
             let stub = document.getElementById('checkds');
