@@ -21,8 +21,8 @@ class PaymentCallbackController extends Controller
 
         $signature = hash_hmac('sha256', $hashString, env('EASYDONATE_SECRET'));
         $product = $request->input('products')[0];
-        if ($product['id'] == env('EASYDONATE_PRODUCT_PASS_ID')) {
-            if (strcasecmp($signature, $request->input('signature')) == 0) {
+        if (strcasecmp($signature, $request->input('signature')) == 0) {
+            if ($product['id'] == env('EASYDONATE_PRODUCT_PASS_ID')) {
                 User::updateOrCreate([
                     'nickname' => $request->input('customer')
                 ], [
@@ -34,16 +34,15 @@ class PaymentCallbackController extends Controller
                 )->put('https://discord.com/api/guilds/' . env('DISCORD_GUILD_ID') . '/members/' . Auth::user()->discord_id . '/roles/' . env('DISCORD_ROLE_ID'));
             }
             else {
-                Log::info('BAD SIGNATURE.');
-                return "ERROR";
+                Log::info("Игрок {$request->input('customer')} купил спосорку с (id товара " . $product = $request->input('products')[0]['id'] . ")!");
+                Http::withHeaders(
+                    ['Authorization' => env('DISCORD_BOT_TOKEN')]
+                )->put('https://discord.com/api/guilds/' . env('DISCORD_GUILD_ID') . '/members/' . Auth::user()->discord_id . '/roles/' . env('DISCORD_ROLE_SPONSOR_ID'));
             }
         }
         else {
-            if (strcasecmp($signature, $request->input('signature')) == 0) {
-                Log::info("Игрок {$request->input('customer')} купил спосорку с (id товара " . $product = $request->input('products')[0]['id'] . ")!");
-            }
+            Log::info('BAD SIGNATURE.');
+            return "ERROR";
         }
-
-
     }
 }
