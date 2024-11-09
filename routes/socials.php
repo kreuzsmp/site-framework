@@ -11,7 +11,7 @@ Route::name('socials.')->group(function () {
     })->name('tiktok');
 
     Route::get('/wiki', function () {
-        return redirect()->away('https://kreuzsmp.gitbook.io/kreuzwiki');
+        return redirect()->away('https://wiki.kreuzsmp.ru');
     })->name('wiki');
 
     Route::get('/youtube', function () {
