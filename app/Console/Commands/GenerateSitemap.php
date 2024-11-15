@@ -32,6 +32,7 @@ class GenerateSitemap extends Command
         }
         else {
             SitemapGenerator::create(env('APP_URL'))->getSitemap()->writeToDisk('public', 'sitemap.xml');
+            Storage::disk('public')->setVisibility('sitemap.xml', 'public');
             $this->info('Success, file was created!');
         }
     }
