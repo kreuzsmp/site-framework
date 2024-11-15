@@ -19,5 +19,6 @@
     {{ $content }}
 </main>
 <x-footer></x-footer>
+<x-analytics.google id="G-524RP678HN"></x-analytics.google>
 </body>
 </html>
